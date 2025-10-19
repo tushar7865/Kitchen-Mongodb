@@ -1,0 +1,323 @@
+:root {
+  --accent: #e74c3c;
+  --dark: #222;
+  --light: #fff;
+  --bg-light: #f9f9f9;
+  --radius: 8px;
+}
+
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: system-ui, Arial, sans-serif;
+  color: var(--dark);
+  background: var(--bg-light);
+  line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 30px;
+  background: var(--light);
+  border-bottom: 1px solid #eee;
+  box-shadow: 0 2px 6px rgba(0,0,0,.05);
+}
+.navbar .logo {
+  font-weight: 700;
+  font-size: 20px;
+}
+.navbar a {
+  color: var(--dark);
+  text-decoration: none;
+  margin: 0 12px;
+  font-weight: 500;
+}
+.navbar a:hover {
+  color: var(--accent);
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  height: 65vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url('../src/assets/images/kitchen-bg.jpg') center/cover no-repeat;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.45);
+}
+.hero-content {
+  position: relative;
+  color: var(--light);
+  text-align: center;
+  max-width: 600px;
+  padding: 20px;
+}
+.hero h1 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+.hero p {
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+}
+.hero .btn {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  text-decoration: none;
+  transition: background .2s;
+}
+.hero .btn:hover {
+  background: #c0392b;
+}
+
+/* Section wrapper */
+.section {
+  padding: 50px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+html {
+  scroll-behavior: smooth; /* ✅ enables smooth scrolling */
+}
+
+
+/* Specials grid */
+.grid {
+  display: grid;
+  gap: 20px;
+}
+.grid-4 {
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+.card {
+  background: var(--light);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0,0,0,.08);
+  transition: transform .2s;
+}
+.card:hover {
+  transform: translateY(-3px);
+}
+.card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+.card .p {
+  padding: 14px;
+}
+.card h3 {
+  margin-bottom: 6px;
+  font-size: 1.1rem;
+}
+.price {
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* Forms */
+.form {
+  display: grid;
+  gap: 14px;
+  background: var(--light);
+  padding: 20px;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px rgba(0,0,0,.05);
+}
+.form input,
+.form textarea,
+.form button {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: var(--radius);
+  font: inherit;
+}
+.form button {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background .2s;
+}
+.form button:hover {
+  background: #c0392b;
+}
+.form .row {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* Recipe Table */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--light);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,.05);
+}
+.table th,
+.table td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
+.table th {
+  background: #f5f5f5;
+  font-weight: 600;
+}
+.table tr:hover td {
+  background: #fafafa;
+}
+
+/* Contact Section */
+#contact .grid {
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+}
+#contact p {
+  margin-bottom: 8px;
+}
+#contact a {
+  color: var(--accent);
+  text-decoration: none;
+}
+#contact a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 24px;
+  background: var(--dark);
+  color: #ddd;
+  margin-top: 40px;
+}
+.footer a {
+  color: var(--accent);
+  text-decoration: none;
+  margin: 0 6px;
+}
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .form .row,
+  #contact .grid {
+    grid-template-columns: 1fr;
+  }
+  .hero h1 {
+    font-size: 1.6rem;
+  }
+}
+
+#specials {
+  scroll-margin-top: 100px; /* adjust depending on your navbar height */
+}
+
+
+/* Cart card */
+.cart-card {
+  max-width: 300px;   /* Limit card width */
+  margin: 0 auto;     /* Center card */
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Cart image */
+.cart-img {
+  width: 100%;
+  height: 180px;      /* Fixed height */
+  object-fit: cover;  /* Prevent stretching */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.cart-total {
+  margin-top: 20px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align: right;
+}
+
+/* Cart Grid */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* Cart Card */
+.cart-card {
+  max-width: 300px;
+  margin: auto;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Cart Image */
+.cart-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Remove Button */
+.btn-remove {
+  margin-top: 10px;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-remove:hover {
+  background: #c0392b;
+}
+
+/* Total Price */
+.total {
+  margin-top: 20px;
+  font-size: 1.3rem;
+  text-align: right;
+  font-weight: bold;
+}
